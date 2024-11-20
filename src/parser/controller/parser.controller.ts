@@ -1,9 +1,10 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ParserService } from '../service/parser.service';
 import { CreateFxqlDto } from '../dto/request/create-fxql.dto';
-import { ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateFxqlResponseDto } from '../dto/response/create-fxql-response.dto';
 
+@ApiTags('Parser')
 @Controller('parser')
 export class ParserController {
   constructor(private readonly _service: ParserService) {}
