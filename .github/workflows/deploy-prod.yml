@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build and Deploy
-    runs-on: ubuntu-latest
+    runs-on: [parser]
 
     steps:
       - uses: actions/checkout@v4
@@ -22,9 +22,6 @@ jobs:
 
       - name: Build Nest Application
         run: NODE_OPTIONS=--max-old-space-size=2048 npm run build
-
-      - name: Setup PM2
-        run: npm install -g pm2
 
       - name: Start PM2
         run: |
