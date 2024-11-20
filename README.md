@@ -34,7 +34,7 @@ The FXQL Parser is a NestJS-based system that parses and validates Foreign Excha
 
 4. Set up environment variables:
 
-   - Create a `.env` file in the root directory according to the `.env.example` file
+   - Create a `.env` file in the root directory according to the `.env.sample` file
 
 5. Run the application:
    ```bash
