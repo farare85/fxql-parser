@@ -38,23 +38,23 @@ async function bootstrap() {
 
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
   // swagger config
-  if (env === Environment.Development) {
-    const config = new DocumentBuilder()
-      .addBearerAuth()
-      .setTitle('FXQL Parser')
-      .setDescription(
-        'Foreign Exchange Query Language (FXQL) Statement Parser Implementation',
-      )
-      .setVersion('1.0')
-      .build();
+  // if (env === Environment.Development) {
+  const config = new DocumentBuilder()
+    .addBearerAuth()
+    .setTitle('FXQL Parser')
+    .setDescription(
+      'Foreign Exchange Query Language (FXQL) Statement Parser Implementation',
+    )
+    .setVersion('1.0')
+    .build();
 
-    const document = SwaggerModule.createDocument(app, config, {
-      deepScanRoutes: true,
-    });
-    SwaggerModule.setup('swagger-ui', app, document, {
-      customSiteTitle: 'FXQL Parser API DOCS',
-    });
-  }
+  const document = SwaggerModule.createDocument(app, config, {
+    deepScanRoutes: true,
+  });
+  SwaggerModule.setup('swagger', app, document, {
+    customSiteTitle: 'FXQL Parser API DOCS',
+  });
+  // }
 
   await app
     .listen(port)
