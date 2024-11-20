@@ -1,0 +1,13 @@
+services:
+  parser:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # command: npm run start:dev
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - .env
+
