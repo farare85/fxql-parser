@@ -45,6 +45,11 @@ export class ParserService {
   validateInputWithNewlineSeparation(input: string): string[] {
     const errors: string[] = [];
 
+    if (input.includes('\n')) {
+      errors.push('Please replace \n with \\n');
+      return errors;
+    }
+
     // This splits the input into blocks of currency pairs by '}' and add a closing brace to each block
     const fxqlBlocks = input
       .trim()
@@ -92,8 +97,10 @@ export class ParserService {
     }
 
     const currencies = pair.trim().split('-');
+
     if (currencies.length !== 2) {
       errors.push(`Invalid currency pair format`);
+      return errors;
     }
     const curr1 = currencies[0].trim();
     const curr2 = currencies[1].trim();
