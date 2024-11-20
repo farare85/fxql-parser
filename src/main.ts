@@ -51,7 +51,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config, {
     deepScanRoutes: true,
   });
-  SwaggerModule.setup('swagger', app, document, {
+  SwaggerModule.setup('', app, document, {
     customSiteTitle: 'FXQL Parser API DOCS',
   });
   // }
