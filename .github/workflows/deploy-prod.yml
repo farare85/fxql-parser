@@ -21,10 +21,10 @@ jobs:
           echo "${{ secrets.ENV_FILE_PROD }}" > .env
 
       - name: Build Nest Application
-        run: npm run build
-
-      - name: Build Nest Application
         run: NODE_OPTIONS=--max-old-space-size=2048 npm run build
+
+      - name: Setup PM2
+        run: npm install -g pm2
 
       - name: Start PM2
         run: |
